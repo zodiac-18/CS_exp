@@ -14,14 +14,13 @@ from wsgiref import simple_server
 
 import pandas as pd
 
-from utils.column import Column
-from utils.make_sql import make_sql_from_form
-from utils.create_results import create_results_table, create_deviation_score_results
-from utils.utils import (
-    load_html,
-    create_placeholder,
-    print_sql,
+from column import Column
+from modules import (
+    create_deviation_score_results,
+    create_results_table,
+    make_sql_from_form,
 )
+from utils import create_placeholder, load_html, print_sql
 
 cgitb.enable()
 
@@ -233,9 +232,20 @@ class SdvxStatsApp:
                 avg_score = search_result[self.select_keys.index("avg_score")]
                 sd_score = search_result[self.select_keys.index("sd_score")]
                 # 偏差値の計算結果と統計データのHTML文を生成
-                page_data["ss_results"] = create_deviation_score_results(ss_score, sd_score, avg_score)
+                page_data["ss_results"] = create_deviation_score_results(
+                    ss_score, sd_score, avg_score
+                )
                 page_data["data_info"] = f"<h4>'{music_title}'の統計データ</h4>\n"
-                page_data["results_header"], page_data["results_table"] = create_results_table(cur, sql, sql_values, self.select_keys, is_percent=True, is_count_display=True)
+                page_data["results_header"], page_data["results_table"] = (
+                    create_results_table(
+                        cur,
+                        sql,
+                        sql_values,
+                        self.select_keys,
+                        is_percent=True,
+                        is_count_display=True,
+                    )
+                )
         for key, value in page_data.items():
             response = response.replace("{% " + key + " %}", value)
         # カーソルと接続を閉じる

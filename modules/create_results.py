@@ -2,13 +2,9 @@
 
 """検索結果のhtml文作成に関する関数"""
 
-from utils.column import Column
+from utils import calculate_achiever_rate, calculate_deviation, validate_score
 
-from utils.utils import (
-    calculate_achiever_rate,
-    calculate_deviation,
-    validate_score
-)
+from ..column import Column
 
 
 # 結果の表の仕様
@@ -155,6 +151,7 @@ def create_results_table(
                 results_table += _create_table_data(key, data)
         results_table += "</tr>\n"
     return header, results_table
+
 
 def create_deviation_score_results(ss_score, sd_score, avg_score):
     """

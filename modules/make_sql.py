@@ -2,8 +2,9 @@
 
 """SQLの作成に関する関数"""
 
-from utils.column import Column
-from utils.utils import create_placeholder
+from utils import create_placeholder
+
+from ..column import Column
 
 
 def make_sql_from_form(form, filter, display) -> tuple:

@@ -87,6 +87,7 @@ def _validate_sd_score(sd_score) -> tuple:
     else:
         return True, ""
 
+
 # ss_scoreとsd_scoreのバリデーションを行う
 def validate_score(ss_score, sd_score):
     """
@@ -108,6 +109,7 @@ def validate_score(ss_score, sd_score):
     if not is_valid:
         return False, error_message
     return True, ""
+
 
 def calculate_achiever_rate(achiever_count, total_count) -> tuple:
     """
