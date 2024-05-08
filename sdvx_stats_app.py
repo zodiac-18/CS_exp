@@ -14,7 +14,7 @@ from wsgiref import simple_server
 
 import pandas as pd
 
-from column import Column
+from data import Column
 from modules import (
     create_deviation_score_results,
     create_results_table,
@@ -28,7 +28,7 @@ cgitb.enable()
 class SdvxStatsApp:
     """SDVXのスコアデータベースを扱うWebアプリケーション"""
 
-    def __init__(self, dbname="sdvx_stats.db", csv_file="sdvx_stats.csv"):
+    def __init__(self, dbname="data/sdvx_stats.db", csv_file="data/sdvx_stats.csv"):
         self.dbname = dbname  # DB名
         self.csv_file = csv_file  # CSVファイル名
         self.select_keys = []  # 表示する項目管理
@@ -64,7 +64,7 @@ class SdvxStatsApp:
         """
         # 入力フォームの内容が空の場合（初めてページを開いた場合も含む）
         # HTML(入力フォーム部分)
-        response = load_html("home.html")
+        response = load_html("html/home.html")
 
         con = sqlite3.connect(self.dbname)
         cur = con.cursor()
@@ -129,7 +129,7 @@ class SdvxStatsApp:
         Returns:
             str: AboutのHTMLページ
         """
-        response = load_html("about.html")
+        response = load_html("html/about.html")
         return response
 
     def handle_result(self, form) -> str:
@@ -142,7 +142,7 @@ class SdvxStatsApp:
         Returns:
             str: 検索結果のHTMLページ
         """
-        response = load_html("result.html")
+        response = load_html("html/result.html")
         con = sqlite3.connect(self.dbname)
         cur = con.cursor()
         con.text_factory = str
@@ -187,7 +187,7 @@ class SdvxStatsApp:
         Returns:
             str: 検索結果のHTMLページ
         """
-        response = load_html("ss.html")
+        response = load_html("html/ss.html")
         con = sqlite3.connect(self.dbname)
         cur = con.cursor()
         con.text_factory = str
@@ -300,6 +300,6 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         port = int(sys.argv[1])
 
-    sdvx_app = SdvxStatsApp(dbname="sdvx_stats.db", csv_file="sdvx_stats.csv")
+    sdvx_app = SdvxStatsApp(dbname="data/sdvx_stats.db", csv_file="data/sdvx_stats.csv")
     server = simple_server.make_server("", port, sdvx_app.application)
     server.serve_forever()

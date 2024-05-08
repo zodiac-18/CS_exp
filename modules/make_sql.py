@@ -4,7 +4,7 @@
 
 from utils import create_placeholder
 
-from ..column import Column
+from data import Column
 
 
 def make_sql_from_form(form, filter, display) -> tuple:

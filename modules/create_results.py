@@ -4,7 +4,7 @@
 
 from utils import calculate_achiever_rate, calculate_deviation, validate_score
 
-from ..column import Column
+from data import Column
 
 
 # 結果の表の仕様
