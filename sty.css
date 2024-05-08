@@ -96,8 +96,21 @@ header {
   padding: 10px;
 }
 
+.results {
+  max-height:1000px;
+  overflow: scroll;
+}
+
+.top_results {
+  overflow-x: scroll;
+}
+
 .ss_music {
   display: none;
+}
+
+.ss_table {
+  overflow:scroll;
 }
 
 .contents-title {
@@ -166,7 +179,7 @@ a.data:hover {
   top: 0px;
   right: 0px;
 }
-.footer-home:hover {
+.footer-home:hover, .footer-about:hover {
   background-color: rgba(255, 255, 255, 0.5);
   transition: all 0.7s;
 }
@@ -178,11 +191,8 @@ a.data:hover {
   position: absolute;
   bottom: 0px;
   right: 0px;
-}
-.footer-about:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: all 0.7s;
-}
+} 
+
 .back-home {
   margin-top: 20px;
 }
