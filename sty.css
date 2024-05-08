@@ -24,7 +24,7 @@ body {
   left : 1em;
   color: skyblue;
 }
-.c a {
+.footer-button a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9)
 }
@@ -89,61 +89,10 @@ header {
 .main {
   padding: 30px 80px;
 }
-.contents {
-  height: auto;
-  background-color: #fffafa;
-  padding: 30px;
-}
 
-.contents_result {
+.contents, .contents_result, .contents_ss, .filter, .ss_score, .results, .top_results, .ss_results, .ss_table {
   height: auto;
   background-color: #fffafa;
-  padding: 30px;
-}
-
-.contents_ss {
-  height: auto;
-  background-color: #fffafa;
-  padding: 30px;
-}
-
-.filter {
-  height: auto;
-  background-color: #fffafa;
-  padding: 10px;
-}
-
-.ss_score {
-  height: auto;
-  background-color: #fffafa;
-  padding: 10px;
-}
-
-.results{
-  height: auto;
-  max-height:1000px;
-  overflow: scroll;
-  background-color: #fffafa;
-  padding: 10px;
-}
-
-
-.top_results{
-  height: auto;
-  overflow-x: scroll;
-  background-color: #fffafa;
-  padding: 10px;
-}
-
-.ss_results {
-  height: auto;
-  background-color: #fffafa;
-  padding: 10px;
-}
-.ss_table {
-  height: auto;
-  background-color: #fffafa;
-  overflow:scroll;
   padding: 10px;
 }
 
@@ -238,13 +187,10 @@ a.data:hover {
   margin-top: 20px;
 }
 
-.contents_7 {
+.reference-contents {
   height: auto;
   background-color: #fffafa;
   padding: 30px;
-}
-.level-img {
-  text-align: center;
 }
 
 .filter ul {
