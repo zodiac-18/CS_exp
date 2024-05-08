@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>偏差値計算 - sdvx統計データ</title>
+    <link rel="stylesheet" href="https://zodiac-18.github.io/cs_exp01/jikken/sty.css" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script>
+        /* 全選択・全解除 */
+        function checkAllBox(name, trueOrFalse) 
+        {
+          const checkbox = document.getElementsByName(name)
+          
+          for(i = 0; i < checkbox.length; i++) {
+            checkbox[i].checked = trueOrFalse
+          }
+        }
+        </script>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="header-left">
+          <p class="title">SOUND VOLTEX 統計データベース</p>
+        </div>
+        <div class="header-right">
+          <a href="/?about=" class="about c">about</a>
+          <a href="/" class="home c">home</a>
+        </div>
+      </div>
+    </header>
+    <div class="top">
+      <div class="greeting">
+        <h1>こんにちは!</h1>
+        <h1>SOUND VOLTEX 統計データベースへようこそ</h1>
+      </div>
+   </div>
+   <div class="main">
+     <div class="contents_ss">
+       <h2 class="contents-title">{% music_title %}の偏差値計算</h2>
+       <div class="contents-main">
+        <p>選択した楽曲の自身のスコアを入力することで、データベース上に登録されたデータ中での偏差値を表示します。</p>
+        <div class="ss_score">
+        <ul>
+        <form method="GET">
+          <div class = "filter_count">
+            <b id="lbl_ss_dif" for="sel_ss_dif_min">難易度</b>
+            <select name="ss_difficulty">
+              <option value="NOVICE">NOV</option>
+              <option value="ADVANCED">ADV</option>
+              <option value="EXHAUST">EXH</option>
+              <option value="MAXIMUM,INFINITE,GRAVITY,HEAVEN,VIVID,EXCEED" selected>MXM/INF/GRV/HVN/VVD/XCD</option>
+            </select>
+            <br>
+            <b id="lbl_score" for="sel_score">スコアを入力してください:</b>
+            <input class = "ss_music" name = "ss_music" value={% music_title %}>
+            <p>
+              <input type="text" size="40" height="20" placeholder="スコアを入力", id="ss_score" name = "ss_score">
+            </p>
+          </div>
+          <button type = "submit" name = "submit">計算</button>
+        </form>
+        </div>
+        </ul>
+        <h3>計算結果</h3>
+        <hr class="hr_filter">
+        <div class="ss_results">
+          {% ss_results %}
+        <div class="ss_table">
+          <table id="result_table">
+            <thead>
+              {% results_header %}
+            </thead>
+            <tbody>
+              {% results_table %}
+            </tbody>
+          </table>
+        </div>
+        </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      <p>このウェブページはコンピュータ科学実験1用に作成したものです。</p>
+    </div>
+    <div class="footer-right">
+      <ul>
+        <li>
+           <a href="/" class="footer-home c">home</a>
+        </li>
+        <li>
+           <a href="/?about=" class="footer-about c">about</a>
+      </ul>
+    </div>
+  </div>
+  </body>
+</html>

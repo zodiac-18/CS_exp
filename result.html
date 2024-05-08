@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>検索結果 - sdvx統計データ</title>
+    <link rel="stylesheet" href="https://zodiac-18.github.io/cs_exp01/jikken/sty.css" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script>
+        /* 全選択・全解除 */
+        function checkAllBox(name, trueOrFalse) 
+        {
+          const checkbox = document.getElementsByClassName(name)
+          
+          for(i = 0; i < checkbox.length; i++) {
+            checkbox[i].checked = trueOrFalse
+          }
+        }
+        </script>
+      <script>
+      $(function(){
+    
+        /**
+         * クリックイベント
+         */
+        $('th').click(function(){
+          // 情報取得
+          let ele = $(this).attr('id');
+          let sortFlg = $(this).data('sort');
+      
+          // リセット
+          $('th').data('sort', "");
+      
+          // ソート順序
+          if(sortFlg == "" || sortFlg == "desc"){
+            sortFlg = "asc";
+            $(this).data('sort', "asc");
+          }else{
+            sortFlg = "desc";
+            $(this).data('sort', "desc");
+          }
+      
+          // テーブルソート処理
+          sortTable(ele, sortFlg);
+        });
+      
+        function sortTable(ele, sortFlg){
+          let arr = $('table tbody tr').sort(function(a, b){
+            let aValue = $(a).find('td').eq(ele).text();
+            let bValue = $(b).find('td').eq(ele).text();
+            
+            // ソート対象が数値の場合
+            if($.isNumeric(aValue) && $.isNumeric(bValue)){
+              let aNum = Number(aValue);
+              let bNum = Number(bValue);
+    
+              if(sortFlg == "asc"){
+                return aNum - bNum;
+              }else{
+                return bNum - aNum;
+              }
+            }else{ // ソート対象が数値でない場合
+              let sortNum = 1;
+    
+              // 比較時は小文字に統一
+              if(aValue.toLowerCase() > bValue.toLowerCase()){
+                sortNum = 1;
+              }else{
+                sortNum = -1;
+              }
+              if(sortFlg == "desc"){
+                sortNum *= (-1);
+              }
+    
+              return sortNum;
+            }
+          });
+          $('table tbody').html(arr);
+        }
+    
+      });
+      </script>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="header-left">
+          <p class="title">SOUND VOLTEX 統計データベース</p>
+        </div>
+        <div class="header-right">
+          <a href="/?about=" class="about c">about</a>
+          <a href="/" class="home c">home</a>
+        </div>
+      </div>
+    </header>
+    <div class="top">
+      <div class="greeting">
+        <h1>こんにちは!</h1>
+        <h1>SOUND VOLTEX 統計データベースへようこそ</h1>
+      </div>
+   </div>
+   <div class="main">
+     <div class="contents_result">
+       <h2 class="contents-title">データベース検索</h2>
+       <div class="contents-main">
+        <p>本ツールは、さわみる様(<a href="https://nearnoah.hatenablog.com/about">さわみる様のブログ</a>)
+          により作成された「<a href="https://nearnoah.net/">SDVX EXCEED GEAR スコアツール（β）</a>」の統計データ
+          及び, silverhawke様の「<a href="https://www.silverhawke.xyz/sdvx-db/">SDVX DB Viewer</a>」のデータベース
+          を用いて、楽曲の検索や平均スコア順のソートなどを行って表示できるツールです。</p>
+        <p>※表示するデータの数が多いと表示に時間がかかることがあります。</p>
+        <div class="filter">
+          <ul>
+            <div class = "search_filter">
+            <h3>検索フィルタ</h3>
+            <form method="GET">
+            <div class="filter_level">
+            <b id="lbl_lvl" for="sel_lvl_min">表示レベル</b>
+              <input type="checkbox" class="level_filter" name="level_filter" value="1">1
+              <input type="checkbox" class="level_filter" name="level_filter" value="2">2
+              <input type="checkbox" class="level_filter" name="level_filter" value="3">3
+              <input type="checkbox" class="level_filter" name="level_filter" value="4">4
+              <input type="checkbox" class="level_filter" name="level_filter" value="5">5
+              <input type="checkbox" class="level_filter" name="level_filter" value="6">6
+              <input type="checkbox" class="level_filter" name="level_filter" value="7">7
+              <input type="checkbox" class="level_filter" name="level_filter" value="8">8
+              <input type="checkbox" class="level_filter" name="level_filter" value="9">9
+              <input type="checkbox" class="level_filter" name="level_filter" value="10">10
+              <input type="checkbox" class="level_filter" name="level_filter" value="11">11
+              <input type="checkbox" class="level_filter" name="level_filter" value="12">12
+              <input type="checkbox" class="level_filter" name="level_filter" value="13">13
+              <input type="checkbox" class="level_filter" name="level_filter" value="14">14
+              <input type="checkbox" class="level_filter" name="level_filter" value="15">15
+              <input type="checkbox" class="level_filter" name="level_filter" value="16">16
+              <input type="checkbox" class="level_filter" name="level_filter" value="17">17
+              <input type="checkbox" class="level_filter" name="level_filter" value="18">18
+              <input type="checkbox" class="level_filter" name="level_filter" value="19">19
+              <input type="checkbox" class="level_filter" name="level_filter" value="20">20
+                <button type="button" onclick="checkAllBox('level_filter', true);">全選択</button>
+                <button type="button" onclick="checkAllBox('level_filter', false);">選択解除</button>
+              </div>
+            <div class = "filter_difficulty">
+              <b id="lbl_dif" for="sel_dif_min">表示難易度</b>
+                <input type="checkbox" class="difficulty" name="difficulty" value="0">NOV
+                <input type="checkbox" class="difficulty" name="difficulty" value="1">ADV
+                <input type="checkbox" class="difficulty" name="difficulty" value="2">EXH
+                <input type="checkbox" class="difficulty" name="difficulty" value="3">MXM
+                <input type="checkbox" class="difficulty" name="difficulty" value="4">INF
+                <input type="checkbox" class="difficulty" name="difficulty" value="5">GRV
+                <input type="checkbox" class="difficulty" name="difficulty" value="6">HVN
+                <input type="checkbox" class="difficulty" name="difficulty" value="7">VVD
+                <input type="checkbox" class="difficulty" name="difficulty" value="8">XCD
+                <button type="button" onclick="checkAllBox('difficulty', true)";>全選択</button>
+                <button type="button" onclick="checkAllBox('difficulty', false);">選択解除</button>
+              
+              <div class = "filter_count">
+                <b id="lbl_music" for="sel_music">楽曲検索</b>
+                <p>
+                  <input type="text" size="40" placeholder="楽曲名を入力" name = "music_title_filter">
+                </p>
+                <b id="lbl_artist" for="sel_artist">作曲者検索</b>
+                <p>
+                  <input type="text" size="40" placeholder="作曲者名を入力" name = "artist_filter">
+                </p>
+              </div>
+              </div>
+              <hr class="hr_filter">
+              </div>
+              <div class = "item_filter">
+                <h3 id="lbl_" for="sel_dif_min">表示項目</h3>
+                  <input type="checkbox" class = "level" name = "level" value="0">レベル
+                  <input type="checkbox" class = "artist" name = "artist" value="0">作曲者名
+                  <input type="checkbox" class = "count" name = "count" value="0">プレイ人数<br>
+                  <input type="checkbox" class = "clear" name = "played" value="0">PLAYED
+                  <input type="checkbox" class = "clear" name = "comp" value="1">COMP
+                  <input type="checkbox" class = "clear" name = "ex_comp" value="2">EX COMP
+                  <input type="checkbox" class = "clear" name = "uc" value="3">UC
+                  <input type="checkbox" class = "clear" name = "per" value="4">PUC
+                  <button type="button" onclick="checkAllBox('clear', true)";>クリアマーク全選択</button>
+                  <button type="button" onclick="checkAllBox('clear', false)";>選択解除</button><br>
+                  <input type="checkbox" class = "grade" name = "grade_B" value="0">B
+                  <input type="checkbox" class = "grade" name = "grade_A" value="1">A
+                  <input type="checkbox" class = "grade" name = "grade_Ap" value="2">A+
+                  <input type="checkbox" class = "grade" name = "grade_AA" value="3">AA
+                  <input type="checkbox" class = "grade" name = "grade_AAp" value="4">AA+
+                  <input type="checkbox" class = "grade" name = "grade_AAA" value="5">AAA
+                  <input type="checkbox" class = "grade" name = "grade_AAAp" value="6">AAA+
+                  <input type="checkbox" class = "grade" name = "grade_S" value="7">S
+                  <input type="checkbox" class = "grade" name = "grade_995" value="8">995
+                  <input type="checkbox" class = "grade" name = "grade_998" value=9>998
+                  <button type="button" onclick="checkAllBox('grade', true)";>ランク全選択</button>
+                  <button type="button" onclick="checkAllBox('grade', false)";>選択解除</button>
+                  <select name="format">
+                    <option value="0">人数表示</option>
+                    <option value="1" selected>%表示</option>
+                  </select>
+                  <br>
+                  <input type="checkbox" class = "avg_score" name = "avg_score" value="0">平均スコア(全体)<br>
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_u7" value="0">～アルジェント
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_8_i_ii" value="1">エルドラ1, 2
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_8_iii_iv" value="2">エルドラ3, 4
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_9_i" value="3">クリムゾン1
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_9_ii" value="4">クリムゾン2
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_9_iii" value="5">クリムゾン3
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_9_iv" value="6">クリムゾン4
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_10_i" value="7">インペリアル1
+                  <input type="checkbox" class = "avg_vf" name = "avg_vf_10_ii" value="8">インペリアル2
+                  <button type="button" onclick="checkAllBox('avg_vf', true)";>平均スコア(vf毎)全選択</button>
+                  <button type="button" onclick="checkAllBox('avg_vf', false)";>選択解除</button><br>
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_u8" value="0">～雷電
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_9" value="1">魔騎士
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_10" value="2">剛力羅
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_11" value="3">或帝滅斗
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_12_n" value="4">無枠暴龍天
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_12_g" value="5">金枠暴龍天
+                  <input type="checkbox" class = "avg_skill" name = "avg_skill_12_h" value="6">後光暴龍天
+                  <button type="button" onclick="checkAllBox('avg_skill', true)";>平均スコア(スキル毎)全選択</button>
+                  <button type="button" onclick="checkAllBox('avg_skill', false)";>選択解除</button><br>
+                  <button type = "submit" name = "submit">絞り込み</button>
+                </form>
+              </div>
+            </div>
+            </ul>
+        <h3>検索結果</h3>
+        <p>※楽曲名をクリックすると偏差値計算のページに遷移します。</p>
+        <p>※列名をクリックすることで、その列に関してソートされます。</p>
+        <hr class="hr_filter">
+        <form method="GET">
+        <div class="results">
+          <table id="result_table">
+            <thead>
+              {% results_header %}
+            </thead>
+            <tbody>
+              {% results %}
+            </tbody>
+          </table>
+        </div>
+        </form>
+      </div> 
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+    <div class="footer-left">
+      <p>このウェブページはコンピュータ科学実験1用に作成したものです。</p>
+    </div>
+    <div class="footer-right">
+      <ul>
+        <li>
+           <a href="/" class="footer-home c">home</a>
+        </li>
+        <li>
+           <a href="/?about=" class="footer-about c">about</a>
+      </ul>
+    </div>
+  </div>
+  </body>
+</html>

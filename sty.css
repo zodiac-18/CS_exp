@@ -1,0 +1,353 @@
+body {
+  font-family: "Avenir Next";
+  background-color: #FFFFEE;
+  margin-top: 100px;
+}
+.footer li {
+  list-style: none;
+}
+.main ul {
+  border: solid 2px skyblue;
+  border-radius: 5px;
+  padding: 0.5em 1em 0.5em 2.3em;
+  position: relative;
+}
+.main ul li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none;
+}
+.main ul li:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f138";
+  position: absolute;
+  left : 1em;
+  color: skyblue;
+}
+.c a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9)
+}
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(0, 0, 128, 0.8);
+  position:fixed;
+  top:0px;
+  z-index:10;
+}
+.title {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 20px;
+  color: white;
+}
+.header-left {
+  float: left;
+}
+.top {
+  width: 1100px;
+  padding: 30px;
+  height: 250px;
+  margin: 0px auto;
+  background-image: url(img/top.jpg);
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+.greeting {
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.9)
+}
+.about {
+  float: right;
+  background-color: rgba(0, 0, 128, 0.3);
+  transition: all 0.7s;
+  line-height: 65px;
+  width: 120px;
+  color: white;
+  text-align: center;
+  margin: 0px 20px;
+  display: block;
+}
+.about:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.home {
+  float: right;
+  text-align: center;
+  background-color: rgba(0, 0, 128, 0.3);
+  transition: all 0.7s;
+  line-height: 65px;
+  width: 120px;
+  color: white;
+  display: block;
+}
+.home:hover {
+  background-color: rgba(255, 255, 255, 0.5)
+}
+.main {
+  padding: 30px 80px;
+}
+.contents {
+  height: auto;
+  background-color: #fffafa;
+  padding: 30px;
+}
+
+.contents_result {
+  height: auto;
+  background-color: #fffafa;
+  padding: 30px;
+}
+
+.contents_ss {
+  height: auto;
+  background-color: #fffafa;
+  padding: 30px;
+}
+
+.filter {
+  height: auto;
+  background-color: #fffafa;
+  padding: 10px;
+}
+
+.ss_score {
+  height: auto;
+  background-color: #fffafa;
+  padding: 10px;
+}
+
+.results{
+  height: auto;
+  max-height:1000px;
+  overflow: scroll;
+  background-color: #fffafa;
+  padding: 10px;
+}
+
+
+.top_results{
+  height: auto;
+  overflow-x: scroll;
+  background-color: #fffafa;
+  padding: 10px;
+}
+
+.ss_results {
+  height: auto;
+  background-color: #fffafa;
+  padding: 10px;
+}
+.ss_table {
+  height: auto;
+  background-color: #fffafa;
+  overflow:scroll;
+  padding: 10px;
+}
+
+.ss_music {
+  display: none;
+}
+
+.contents-title {
+  border-bottom: 1px solid #dee7ec;
+}
+.contents-main li {
+  font-weight: bold;
+}
+.contents-item li {
+  font-size: 20px;
+  font-weight: bold;
+}
+.contents-item {
+  color: black;
+}
+.contents-item a {
+  margin-left: 5px;
+}
+.section-title {
+  border-bottom: 2px solid #dee7ec;
+  font-size: 28px;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+}
+
+a.data {
+  color: black;
+  text-decoration: none;
+}
+
+a.data:hover {
+  color: red;
+}
+
+.form input {
+  height: 20px;
+  width: 200px;
+  margin: 5px;
+}
+.footer {
+  background-color: rgb(0, 0, 128);
+  height: 60px;
+  padding: 0px 0px 60px 20px;
+}
+.footer-left {
+  padding-top: 15px;
+  float: left;
+  font-size:11.5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer-right {
+  background-color: #165e83;
+  float: right;
+  display: block;
+  text-align: center;
+  height: 120px;
+  position: relative;
+  width: 160px;
+}
+.footer-home {
+  margin: 0px 0px 10px 0px;
+  color: white;
+  width: 160px;
+  line-height: 60px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.footer-home:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.7s;
+}
+.footer-about {
+  margin: 10px 0px 0px 0px;
+  color: white;
+  width: 160px;
+  line-height: 60px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.footer-about:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.7s;
+}
+.back-home {
+  margin-top: 20px;
+}
+
+.contents_7 {
+  height: auto;
+  background-color: #fffafa;
+  padding: 30px;
+}
+.level-img {
+  text-align: center;
+}
+
+.filter ul {
+  border: solid 2px #ffb03f;
+  padding: 0 1em 0.5em 2.3em;
+  position: relative;
+}
+
+.hr_filter{
+  position: relative;
+	height: 3px;
+	border-width: 0;
+	background-color: #00bcd4;
+	background-image: -webkit-linear-gradient( 135deg, #FD6585 10%, #0D25B9 100%);
+	background-image: linear-gradient( 135deg, #FD6585 10%, #0D25B9 100%);
+}
+
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 5px;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+.difficulty_NOVICE {
+  color: rgb(27, 22, 76);
+}
+.difficulty_ADVANCED {
+  color: rgb(152, 110, 44);
+}
+.difficulty_EXHAUST {
+  color: rgb(199, 58, 60);
+}
+.difficulty_MAXIMUM {
+  color: rgb(121, 121, 121);
+}
+.difficulty_INFINITE {
+  color: rgb(187, 79, 179);
+}
+.difficulty_GRAVITY {
+  color: rgb(199, 113, 58);
+}
+.difficulty_HEAVENLY {
+  color: rgb(58, 160, 199);
+}
+.difficulty_VIVID {
+  color: rgb(255, 89, 205);
+}
+.difficulty_EXCEED {
+  color: rgb(24, 127, 255);
+}
+.achiever_rate_zero {
+  color: rgb(128, 128, 128);
+}
+.achiever_rate_rare {
+  color: rgb(225, 49, 52);
+}
+.achiever_rate_very_rare {
+  color: rgb(225, 49, 52);
+  font-weight: bold;
+}
+.bold {
+  font-weight: bold;
+}
